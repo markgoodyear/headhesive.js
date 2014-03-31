@@ -16,7 +16,7 @@ headhesive.init();
 ```
 
 ### Styling Headhesive.js
-Headhesive.js inject no CSS styles so you can use your own to completely control how your sticky element behaves. An [example is prodided in the demo](demo/headhesive.css).
+Headhesive.js doesn't inject any CSS styles so you can use your own to completely control how your sticky element behaves. An [example is provided in the demo](demo/css/headhesive.css).
 
 ## Options
 Customise how Headhesive works by passing in custom options.
@@ -69,7 +69,7 @@ headhesive.init();
 To destroy an instance of Headhesive.js, you can call the destroy method:
 
 ```javascript
-    headhesive.destroy();
+headhesive.destroy();
 ```
 
 ## Browser support
