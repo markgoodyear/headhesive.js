@@ -59,8 +59,8 @@ headhesive.init();
 
     // Callbacks
     onInit: function() {},
-    onShow: function() {},
-    onHide: function() {},
+    onStick: function() {},
+    onUnstick: function() {},
     onDestroy: function() {},
 }
 ```
