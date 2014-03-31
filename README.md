@@ -44,14 +44,14 @@ headhesive.init();
     // Custom classes
     classes: {
 
-        // Main class
-        main: 'headhesive',
+        // Cloned elem class
+        clone: 'headhesive',
 
-        // Class to add when element is shown
-        show: 'headhesive--stick',
+        // Stick class
+        stick: 'headhesive--stick',
 
-        // Class to add when element is hidden
-        hide: 'headhesive--unstick'
+        // Unstick class
+        unstick: 'headhesive--unstick'
     },
 
     // Throttle scroll event to fire every 250ms to improve performace
