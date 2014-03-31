@@ -1,0 +1,30 @@
+{
+  "name": "headhesive",
+  "description": "A better sticky header",
+  "version": "1.0.0",
+  "author": {
+    "name": "Mark Goodyear",
+    "url": "http://markgoodyear.com",
+    "twitter": "@markgdyr"
+  },
+  "homepage": "http://markgoodyear.com/labs/headhesive",
+  "repository": "git://github.com/markgoodyear/headhesive.git",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.9"
+  },
+  "devDependencies": {
+    "gulp-concat": "~2.2.0",
+    "gulp-plumber": "~0.5.6",
+    "jshint-stylish": "~0.1.5",
+    "gulp-util": "~2.2.14",
+    "gulp-livereload": "~1.2.0",
+    "gulp": "~3.5.6",
+    "gulp-jshint": "~1.5.1",
+    "gulp-uglify": "~0.2.1",
+    "gulp-header": "~1.0.2",
+    "gulp-rimraf": "0.0.9",
+    "gulp-rename": "~1.2.0",
+    "gulp-rigger": "~0.5.8"
+  }
+}

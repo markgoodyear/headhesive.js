@@ -1,0 +1,161 @@
+/* Main */
+* {
+    -webkit-box-sizing: border-box;
+       -mox-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html  {
+    line-height: 1.6;
+    font-family:  'Open Sans', 'Helvetica', sans-serif;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #c95a5d;
+    -webkit-transition: all 300ms ease-in-out;
+       -moz-transition: all 300ms ease-in-out;
+            transition: all 300ms ease-in-out;
+}
+    a:hover {
+        color: #7C2B2D;
+    }
+
+.lead {
+    font-size: 18px;
+    margin-bottom: 60px;
+}
+
+/* Button */
+.btn {
+    border: 2px solid #fff;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+    text-shadow: none !important;
+}
+    .btn:hover {
+        background: #fff;
+        color: #7C2B2D;
+    }
+
+
+/**
+ * Banner
+ */
+
+/* Main elem */
+.banner {
+    background: #c95a5d;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    height: 70px;
+    width: 100%;
+    color: #fff;
+}
+    .banner a {
+        color: #fff;
+    }
+    .banner a:hover {
+        color: #7C2B2D;
+    }
+
+/* Logo */
+.logo {
+    float: left;
+    margin: 0;
+    font-size: 20px;
+    line-height: 70px;
+}
+
+/* Nav */
+.nav {
+    height: 40px;
+    padding: 0;
+    margin: 15px 0 0;
+    float: right;
+}
+    /* Nav item */
+    .nav__item {
+        height: 40px;
+        line-height: 40px;
+        padding: 0;
+        margin-left: 10px;
+        display: inline-block;
+    }
+    /* Nav item button */
+    .nav__item--btn {
+        display: inline-block;
+        padding: 0 10pxi;
+        font-size: 14px;
+        line-height: 38px;
+        padding: 0 20px;
+        width: auto;
+    }
+
+/* Hero */
+.hero {
+    background: #c95a5d;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 60px;
+    overflow: hidden;
+    padding: 60px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+
+.hero__title {
+    font-size: 72px;
+    margin: 0 0 10px;
+}
+
+.hero__title span {
+    /*opacity: .6;*/
+}
+
+.hero__snippet {
+    font-size: 32px;
+    font-style: italic;
+    margin: 0 0 40px;
+}
+
+.hero__btn {
+    border-color: #fff;
+    color: #fff;
+    padding: 10px 0;
+    width: 160px;
+    display: inline-block;
+}
+
+/* Button List */
+.btn-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-list__item {
+    display: inline-block;
+    margin: auto 5px;
+}
+
+
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+
+footer {
+    margin-top: 60px;
+    color: #888;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+}
+
+footer .top {
+    float: right;
+}
