@@ -78,5 +78,5 @@ IE9+ and modern browsers.
 ## License
 Headesive.js is licensed under the MIT License.
 
-## Contributing
-Please see CONTRIBUTE.md for info on contributing.
+## Demo
+There is a demo available in the [demo folder](demo/) (online version coming soon).
