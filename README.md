@@ -2,7 +2,7 @@
 > An on-demand sticky header.
 
 ## What is it?
-Headhesive.js creates an on-demand sticky header. Specify when you want your header to become fixed and the rest is magic.
+Headhesive.js creates an on-demand sticky header. Specify when you want your header to become fixed and the rest is magic. [View demo](http://markgoodyear.com/labs/headhesive/)
 
 ## How to use?
 Headhesive.js is a standalone JavaScript plugin with no dependancies. Include the headhesive.min.js in the footer of your page and initialise it:
@@ -73,4 +73,4 @@ IE9+ and modern browsers.
 Headesive.js is licensed under the MIT License.
 
 ## Demo
-There is a demo available in the [demo folder](demo/) (online version coming soon).
+There is a demo available in the [demo folder](demo/) and online at [http://markgoodyear.com/labs/headhesive/](http://markgoodyear.com/labs/headhesive/).
