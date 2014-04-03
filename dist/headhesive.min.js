@@ -1,5 +1,5 @@
 /*!
- * headhesive v1.0.0 - A better sticky header
+ * headhesive v1.1.0 - An on-demand sticky header
  * Url: http://markgoodyear.com/labs/headhesive
  * Copyright (c) Mark Goodyear — @markgdyr — http://markgoodyear.com
  * License: MIT
