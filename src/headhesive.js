@@ -4,9 +4,6 @@
 
     //= helpers.js
 
-    // Pirvate vars
-    var _throttleUpdate;
-
     /**
      * Constructor
      */
@@ -35,11 +32,14 @@
             onDestroy: function() {},
         };
 
-        // Get elem
-        this.elem = document.querySelector(elem);
+        // Get elem, check if string, if not assume object passed in
+        this.elem = (typeof elem === 'string') ? document.querySelector(elem) : elem;
 
         // Merge user options with default options
         this.options = _mergeObj(this.options, options);
+
+        // Self init
+        this.init();
     };
 
 
@@ -60,7 +60,7 @@
             this.clonedElem.className += ' ' + this.options.classes.clone;
             document.body.insertBefore(this.clonedElem, document.body.firstChild);
 
-            // Determin offset value (number || string)
+            // Determin offset value
             if (typeof this.options.offset === 'number') {
                 this.scrollOffset = this.options.offset;
 
@@ -72,9 +72,9 @@
             }
 
             // Throttled scroll
-            _throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);
+            this._throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);
 
-            window.addEventListener('scroll', _throttleUpdate, false);
+            window.addEventListener('scroll', this._throttleUpdate, false);
             this.options.onInit.call(this);
         },
 
@@ -83,7 +83,7 @@
          */
         destroy: function() {
             document.body.removeChild(this.clonedElem);
-            window.removeEventListener('scroll', _throttleUpdate);
+            window.removeEventListener('scroll', this._throttleUpdate);
             this.options.onDestroy.call(this);
         },
 

@@ -55,7 +55,6 @@
     }
     return top;
   }
-  var _throttleUpdate;
   var Headhesive = function(elem, options) {
     if (!("querySelector" in document && "addEventListener" in window)) {
       return;
@@ -74,8 +73,9 @@
       onUnstick: function() {},
       onDestroy: function() {}
     };
-    this.elem = document.querySelector(elem);
+    this.elem = typeof elem === "string" ? document.querySelector(elem) : elem;
     this.options = _mergeObj(this.options, options);
+    this.init();
   };
   Headhesive.prototype = {
     constructor: Headhesive,
@@ -90,13 +90,13 @@
       } else {
         throw new Error("Invalid offset: " + this.options.offset);
       }
-      _throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);
-      window.addEventListener("scroll", _throttleUpdate, false);
+      this._throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);
+      window.addEventListener("scroll", this._throttleUpdate, false);
       this.options.onInit.call(this);
     },
     destroy: function() {
       document.body.removeChild(this.clonedElem);
-      window.removeEventListener("scroll", _throttleUpdate);
+      window.removeEventListener("scroll", this._throttleUpdate);
       this.options.onDestroy.call(this);
     },
     stick: function() {

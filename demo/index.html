@@ -24,8 +24,8 @@
             <h1 class="hero__title">Headhesive.js</h1>
             <p class="hero__snippet">An on-demand sticky header.</p>
             <ul class="btn-list">
-                <li class="btn-list__item"><a class="hero__btn  btn" href="#">Download</a></li>
-                <li class="btn-list__item"><a class="hero__btn  btn" href="#">GitHub</a></li>
+                <li class="btn-list__item"><a class="hero__btn  btn" href="https://github.com/markgoodyear/headhesive/archive/master.zip">Download</a></li>
+                <li class="btn-list__item"><a class="hero__btn  btn" href="https://github.com/markgoodyear/headhesive/tree/master">GitHub</a></li>
             </ul>
         </div>
     </section>
@@ -69,26 +69,15 @@
             classes: {
                 clone:   'banner--clone',
                 stick:   'banner--stick',
-                unstick: 'banner--unstick',
-            },
-            throttle: 300,
-            onShow: function() {
-                console.log('show:', this);
-            },
-            onHide: function() {
-                console.log('hide:', this);
-            },
-            onInit: function() {
-                console.log('init:', this);
+                unstick: 'banner--unstick'
             }
         };
 
         // Initialise with options
-        var headhesive = new Headhesive('.banner', options)
-        headhesive.init();
+        var banner = new Headhesive('.banner', options);
 
-        // Destroy method
-        // headhesive.destroy();
+        // Headhesive destroy
+        // banner.destroy();
     </script>
 
 </body>

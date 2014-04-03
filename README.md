@@ -10,9 +10,6 @@ Headhesive.js is a standalone JavaScript plugin with no dependancies. Include th
 ```javascript
 // Create a new instance of Headhesive
 var headhesive = new Headhesive('.header');
-
-// Initialise instance
-headhesive.init();
 ```
 
 ### Styling Headhesive.js
@@ -27,11 +24,8 @@ var options = {
     offset: 500
 }
 
-// Create a new instance of Headhesive and pass in options
-var headhesive = new Headhesive('.header', options);
-
-// Initialise instance
-headhesive.init();
+// Create a new instance of Headhesive and pass in some options
+var header = new Headhesive('.header', options);
 ```
 
 ### Defaults
