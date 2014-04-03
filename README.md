@@ -63,7 +63,7 @@ var header = new Headhesive('.header', options);
 To destroy an instance of Headhesive.js, you can call the destroy method:
 
 ```javascript
-headhesive.destroy();
+header.destroy();
 ```
 
 ## Browser support
