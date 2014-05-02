@@ -4,6 +4,13 @@
 ## What is it?
 Headhesive.js creates an on-demand sticky header. Specify when you want your header to become fixed and the rest is magic. [View demo](http://markgoodyear.com/labs/headhesive/).
 
+## Bower
+Install `Headhesive.js` with Bower:
+
+```
+$ bower install headhesive.js
+```
+
 ## How to use?
 Headhesive.js is a standalone JavaScript plugin with no dependancies. Include the [`headhesive.min.js`](dist/headhesive.min.js) *(from the [`dist/`](dist/) folder)* in the footer of your page and initialise it:
 
