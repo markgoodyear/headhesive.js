@@ -21,7 +21,7 @@
         this.options = {
             offset: 300,
             classes: {
-                base:    'headhesive',
+                clone:    'headhesive',
                 stick:   'headhesive--stick',
                 unstick: 'headhesive--unstick'
             },
