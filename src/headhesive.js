@@ -38,8 +38,10 @@
         // Merge user options with default options
         this.options = _mergeObj(this.options, options);
 
-        // Self init
-        this.init();
+        // Self init if elem exists
+        if (this.elem === null) {
+            this.init();
+        }
     };
 
 
