@@ -1,5 +1,5 @@
 /*!
- * headhesive v1.1.0 - An on-demand sticky header
+ * headhesive v1.1.1 - An on-demand sticky header
  * Url: http://markgoodyear.com/labs/headhesive
  * Copyright (c) Mark Goodyear — @markgdyr — http://markgoodyear.com
  * License: MIT
@@ -63,7 +63,7 @@
     this.options = {
       offset: 300,
       classes: {
-        base: "headhesive",
+        clone: "headhesive",
         stick: "headhesive--stick",
         unstick: "headhesive--unstick"
       },
