@@ -61,20 +61,16 @@
             document.body.insertBefore(this.clonedElem, document.body.firstChild);
 
             // Determin offset value
-            if (typeof this.options.offset === 'number') {
-                this.scrollOffset = this.options.offset;
-
-            } else if (typeof this.options.offset === 'string') {
-                this.scrollOffset = _getElemY(document.querySelector(this.options.offset));
-
-            } else {
-                throw new Error('Invalid offset: ' + this.options.offset);
-            }
+            this.updateOffset();
 
             // Throttled scroll
             this._throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);
 
+            // Throttled offset
+            this._offsetUpdate = _throttle(this.updateOffset.bind(this), this.options.throttle);
+
             window.addEventListener('scroll', this._throttleUpdate, false);
+            window.addEventListener('resize', this._offsetUpdate, false);
             this.options.onInit.call(this);
         },
 
@@ -121,6 +117,19 @@
                 this.unstick();
             }
         },
+
+        /**
+         * Update offset of elem
+         */
+        updateOffset: function() {
+          if (typeof this.options.offset === 'number') {
+            this.scrollOffset = this.options.offset;
+          } else if (typeof this.options.offset === 'string') {
+            this.scrollOffset = _getElemY(document.querySelector(this.options.offset));
+          } else {
+            throw new Error('Invalid offset: ' + this.options.offset);
+          }
+        }
 
     };
 
