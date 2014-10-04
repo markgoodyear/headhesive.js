@@ -40,7 +40,8 @@ var header = new Headhesive('.header', options);
 ```javascript
 {
     // Scroll offset. Accepts Number or "String" (for class/ID)
-    offset: 300, // OR — offset: '.classToActivateAt',
+    offset: 300, // OR — offset: '.classToActivateAt'
+    clone: true, // Choose whether to clone the target element or not
 
     // Custom classes
     classes: {

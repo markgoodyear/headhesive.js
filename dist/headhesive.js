@@ -1,5 +1,5 @@
 /*!
- * headhesive v1.1.1 - An on-demand sticky header
+ * headhesive v1.2.0 - An on-demand sticky header
  * Url: http://markgoodyear.com/labs/headhesive
  * Copyright (c) Mark Goodyear — @markgdyr — http://markgoodyear.com
  * License: MIT
@@ -59,9 +59,10 @@
     if (!("querySelector" in document && "addEventListener" in window)) {
       return;
     }
-    this.visible = false;
+    this.pastOffset = false;
     this.options = {
       offset: 300,
+      clone: false,
       classes: {
         clone: "headhesive",
         stick: "headhesive--stick",
@@ -80,38 +81,47 @@
   Headhesive.prototype = {
     constructor: Headhesive,
     init: function() {
-      this.clonedElem = this.elem.cloneNode(true);
-      this.clonedElem.className += " " + this.options.classes.clone;
-      document.body.insertBefore(this.clonedElem, document.body.firstChild);
-      if (typeof this.options.offset === "number") {
-        this.scrollOffset = this.options.offset;
-      } else if (typeof this.options.offset === "string") {
-        this.scrollOffset = _getElemY(document.querySelector(this.options.offset));
+      if (this.options.clone) {
+        this.targetElem = this.elem.cloneNode(true);
+        this.targetElem.className += " " + this.options.classes.clone;
+        document.body.insertBefore(this.targetElem, document.body.firstChild);
       } else {
-        throw new Error("Invalid offset: " + this.options.offset);
+        this.targetElem = this.elem;
+        this.setTopSpacing = true;
+        this.setTopSpacingHeight = this.targetElem.offsetHeight + "px";
       }
+      this.scrollOffset = typeof this.options.offset === "string" ? _getElemY(document.querySelector(this.options.offset)) : this.scrollOffset = this.options.offset;
       this._throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);
       window.addEventListener("scroll", this._throttleUpdate, false);
       this.options.onInit.call(this);
     },
     destroy: function() {
-      document.body.removeChild(this.clonedElem);
+      if (this.clone) {
+        document.body.removeChild(this.targetElem);
+      }
       window.removeEventListener("scroll", this._throttleUpdate);
       this.options.onDestroy.call(this);
     },
     stick: function() {
-      if (!this.visible) {
-        this.clonedElem.className = this.clonedElem.className.replace(new RegExp("(^|\\s)*" + this.options.classes.unstick + "(\\s|$)*", "g"), "");
-        this.clonedElem.className += " " + this.options.classes.stick;
-        this.visible = true;
+      if (!this.pastOffset) {
+        if (this.setTopSpacing) {
+          document.documentElement.style.marginTop = this.setTopSpacingHeight;
+        }
+        this.targetElem.className = this.targetElem.className.replace(new RegExp("(^|\\s)*" + this.options.classes.unstick + "(\\s|$)*", "g"), " ");
+        this.targetElem.className = this.targetElem.className.replace(new RegExp("(^|\\s)*" + "animating-out" + "(\\s|$)*", "g"), " ");
+        this.targetElem.className += " " + this.options.classes.stick;
+        this.pastOffset = true;
         this.options.onStick.call(this);
       }
     },
     unstick: function() {
-      if (this.visible) {
-        this.clonedElem.className = this.clonedElem.className.replace(new RegExp("(^|\\s)*" + this.options.classes.stick + "(\\s|$)*", "g"), "");
-        this.clonedElem.className += " " + this.options.classes.unstick;
-        this.visible = false;
+      if (this.pastOffset) {
+        if (this.setTopSpacing) {
+          document.documentElement.style.marginTop = 0;
+        }
+        this.targetElem.className = this.targetElem.className.replace(new RegExp("(^|\\s)*" + this.options.classes.stick + "(\\s|$)*", "g"), " ");
+        this.targetElem.className += " " + this.options.classes.unstick;
+        this.pastOffset = false;
         this.options.onUnstick.call(this);
       }
     },

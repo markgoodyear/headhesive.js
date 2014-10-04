@@ -1,5 +1,8 @@
 # Headhesive changelog
 
+## v1.2.0
+- [Feature] Option to allow Headhesive without cloning
+
 ## v1.1.1
 - [Fix] Fix class naming
 

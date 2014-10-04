@@ -1,72 +1,146 @@
 /*----------------------------------------------------------------------------*\
-    Headhesive Specific Styles
-/*----------------------------------------------------------------------------*/
+ * Example styles for cloning element
+ *
+ *  var options = {
+ *    clone: true // Default
+ *  }
+\*----------------------------------------------------------------------------*/
 
 /**
- * Headhesive element clone
- * > `clone` class for the cloned element:
+ * Headhesive element clone class for the cloned element.
  *
- |  var options = {
- |      classes {
- |          clone: 'banner--clone';
- |      }
- |  }
+ *  var options = {
+ *    classes {
+ *      clone: 'banner--clone';
+ *    }
+ *  }
  *
  */
-.banner--clone {
+.banner-clone {
 
-    /* Required styles */
-    position: fixed;
-    top: 0;
-    left: 0;
+  /* Required styles */
+  position: fixed;
+  top: 0;
+  left: 0;
 
-    /* Additional styles */
-    background: #c95a5d;
+  /* Additional styles */
+  background: #c95a5d;
 
-    /* Translate -100% to move off screen */
-    -webkit-transform: translateY(-100%);
-        -ms-transform: translateY(-100%);
-            transform: translateY(-100%);
+  /* Translate -100% to move off screen */
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
 
-    /* Animations */
-    -webkit-transition: all 300ms ease-in-out;
-       -moz-transition: all 300ms ease-in-out;
-            transition: all 300ms ease-in-out;
+  /* Animations */
+  -webkit-transition: all 300ms ease-in-out;
+     -moz-transition: all 300ms ease-in-out;
+          transition: all 300ms ease-in-out;
 
 }
 
 
 /**
- * Headhesive stick
- * > `stick` class for the cloned element:
+ * Headhesive stick class for the cloned element.
  *
- |  var options = {
- |      classes {
- |          stick: 'banner--stick';
- |      }
- |  }
+ *  Example plugin options:
+ *  var options = {
+ *      classes {
+ *          stick: 'banner--stick';
+ *      }
+ *  }
  *
+ */
+.banner-clone--stick {
+
+  /* Translate back to 0%; */
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+
+/**
+ * Headhesive unstick class for the cloned element.
+ *
+ *  Example plugin options:
+ *  classes: {
+ *    unstick: 'banner--unstick';
+ *  }
+ */
+.banner-clone--unstick {
+  /* Not required to use, but could be useful to have */
+}
+
+
+/*-----------------------------------------------------------*\
+ * Example styles for *not* cloning element.
+ *
+ * var options = {
+ *   clone: false
+ * }
+\*-----------------------------------------------------------*/
+
+/**
+ * Headhesive stick class.
+ *
+ * Example plugin options:
+ * classes {
+ *   stick: 'banner--stick';
+ * }
  */
 .banner--stick {
+  position: fixed;
+  top: 0;
+  left: 0;
 
-    /* Translate back to 0%; */
-    -webkit-transform: translateY(0%);
-        -ms-transform: translateY(0%);
-            transform: translateY(0%);
+  /* Animation */
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+
+  -webkit-animation-name: stick;
+          animation-name: stick;
+}
+
+/**
+ * Headhesive unstick class.
+ *
+ *  Example plugin options:
+ *  classes: {
+ *    unstick: 'banner--unstick';
+ *  }
+ */
+.banner--unstick {
+  /* Not required to use, but could be useful to have */
 }
 
 
 /**
- * Headhesive unstick
- * > `unstick` class for the cloned element:
- *
- |  var options = {
- |      classes {
- |          unstick: 'banner--unstick';
- |      }
- |  }
- *
+ * Keyframe animations
  */
-.banner--unstick {
-    /* Not required to use, but could be useful to have */
+
+/* Stick */
+@-webkit-keyframes stick {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes stick {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
