@@ -64,7 +64,7 @@ var _getScrollY = function () {
  * _getElemY
  * @description Get Y posistion of an element
  */
-function _getElemY (elem) {
+var _getElemY = function (elem) {
   var top = 0;
   while(elem) {
     top += elem.offsetTop;
@@ -72,3 +72,14 @@ function _getElemY (elem) {
   }
   return top;
 }
+
+/**
+ * Convert data-options attribute into an object of key/value pairs
+ * Credit to Chris Ferdinandi
+ *
+ * @param   {String} options Link-specific options as a data attribute string
+ * @returns {Object}
+ */
+var _getDataOptions = function (options) {
+  return !options || !(typeof JSON === 'object' && typeof JSON.parse === 'function') ? {} : JSON.parse(options);
+};

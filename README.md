@@ -33,6 +33,17 @@ var options = {
 
 // Create a new instance of Headhesive and pass in some options
 var header = new Headhesive('.header', options);
+
+### Using `data-attributes`
+You can also pass in options via `data-attributes`:
+
+```markup
+<div class="header" data-headhesive='{
+    "offset": 500
+}'></div>
+
+Using the `data-headhesive` attribute, pass in options via a JSON object. Remember the opening and closing quotes *must* be single quotes, and the object must be valid JSON.
+
 ```
 
 ### Defaults
@@ -41,7 +52,9 @@ var header = new Headhesive('.header', options);
 {
     // Scroll offset. Accepts Number or "String" (for class/ID)
     offset: 300, // OR — offset: '.classToActivateAt'
-    clone: true, // Choose whether to clone the target element or not
+
+    // Choose whether to clone the target element or use original element
+    clone: true,
 
     // Custom classes
     classes: {

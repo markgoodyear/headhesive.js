@@ -20,7 +20,7 @@
     // Options
     this.options = {
       offset:    300,
-      clone:     false,
+      clone:     true,
       classes: {
         clone:   'headhesive',
         stick:   'headhesive--stick',
@@ -33,8 +33,11 @@
       onDestroy: function () {},
     };
 
-    // Get elem, check if string, if not assume object passed in
+    // Get elem, check if string, if not assume [object HTMLElement] passed in
     this.elem = (typeof elem === 'string') ? document.querySelector(elem) : elem;
+
+    // Override options if data-attributes are specified
+    options = _getDataOptions(this.elem.dataset.headhesive);
 
     // Merge user options with default options
     this.options = _mergeObj(this.options, options);
@@ -59,6 +62,7 @@
       if (this.options.clone) {
         this.targetElem = this.elem.cloneNode(true);
         this.targetElem.className += ' ' + this.options.classes.clone;
+        this.targetElem.removeAttribute('data-headhesive');
         document.body.insertBefore(this.targetElem, document.body.firstChild);
       } else {
         this.targetElem = this.elem;

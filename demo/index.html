@@ -9,7 +9,15 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700" rel="stylesheet" type='text/css'>
 </head>
 <body id="top">
-    <header class="banner">
+    <header class="banner" data-headhesive='{
+        "offset": "#showHere",
+        "classes": {
+            "clone":   "banner-clone",
+            "stick":   "banner-clone--stick",
+            "unstick": "banner-clone--unstick"
+        }
+    }'>
+    <!-- <header class="banner"> -->
         <nav class="container">
             <h1 class="logo">Headhesive.js</h1>
             <ul class="nav">
@@ -74,18 +82,29 @@
         //     }
         // };
 
-        // Example options without cloning
-        var options = {
-            offset: '#showHere',
-            clone: false,
-            classes: {
-                stick:   'banner--stick',
-                unstick: 'banner--unstick'
-            }
-        };
+        // Initialise with options
+        // var banner = new Headhesive('.banner', options);
+
+
+        /**
+         *  Example options without cloning
+         */
+        // var options = {
+        //     offset: '#showHere',
+        //     clone: false,
+        //     classes: {
+        //         stick:   'banner--stick',
+        //         unstick: 'banner--unstick'
+        //     }
+        // };
 
         // Initialise with options
-        var banner = new Headhesive('.banner', options);
+        // var banner = new Headhesive('.banner', options);
+
+        /**
+         * Example with no options. Options are provided by data-headhesive='{}'
+         */
+        var banner = new Headhesive('.banner');
 
         // Headhesive destroy
         // banner.destroy();

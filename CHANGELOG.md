@@ -1,7 +1,8 @@
 # Headhesive changelog
 
 ## v1.2.0
-- [Feature] Option to allow Headhesive without cloning
+- [Feature] Allow options to be passed in from data-attribute
+- [Feature] Option to disable cloning target element and use original instead
 
 ## v1.1.1
 - [Fix] Fix class naming

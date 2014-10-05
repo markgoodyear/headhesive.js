@@ -47,14 +47,17 @@
   var _getScrollY = function() {
     return window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
   };
-  function _getElemY(elem) {
+  var _getElemY = function(elem) {
     var top = 0;
     while (elem) {
       top += elem.offsetTop;
       elem = elem.offsetParent;
     }
     return top;
-  }
+  };
+  var _getDataOptions = function(options) {
+    return !options || !(typeof JSON === "object" && typeof JSON.parse === "function") ? {} : JSON.parse(options);
+  };
   var Headhesive = function(elem, options) {
     if (!("querySelector" in document && "addEventListener" in window)) {
       return;
@@ -62,7 +65,7 @@
     this.pastOffset = false;
     this.options = {
       offset: 300,
-      clone: false,
+      clone: true,
       classes: {
         clone: "headhesive",
         stick: "headhesive--stick",
@@ -75,6 +78,7 @@
       onDestroy: function() {}
     };
     this.elem = typeof elem === "string" ? document.querySelector(elem) : elem;
+    options = _getDataOptions(this.elem.dataset.headhesive);
     this.options = _mergeObj(this.options, options);
     this.init();
   };
@@ -84,6 +88,7 @@
       if (this.options.clone) {
         this.targetElem = this.elem.cloneNode(true);
         this.targetElem.className += " " + this.options.classes.clone;
+        this.targetElem.removeAttribute("data-headhesive");
         document.body.insertBefore(this.targetElem, document.body.firstChild);
       } else {
         this.targetElem = this.elem;
