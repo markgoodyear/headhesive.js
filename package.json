@@ -14,16 +14,16 @@
     "node": ">= 0.9"
   },
   "devDependencies": {
-    "gulp-concat": "~2.2.0",
-    "gulp-plumber": "~0.5.6",
-    "jshint-stylish": "~0.1.5",
-    "gulp-util": "~2.2.14",
-    "gulp-livereload": "~1.2.0",
-    "gulp": "~3.5.6",
-    "gulp-jshint": "~1.5.1",
-    "gulp-uglify": "~0.2.1",
-    "gulp-header": "~1.0.2",
-    "gulp-rimraf": "0.0.9",
+    "gulp-concat": "~2.4.1",
+    "gulp-plumber": "~0.6.6",
+    "jshint-stylish": "~1.0.0",
+    "gulp-util": "~3.0.1",
+    "gulp-livereload": "~2.1.1",
+    "gulp": "~3.8.8",
+    "gulp-jshint": "~1.8.5",
+    "gulp-uglify": "~1.0.1",
+    "gulp-header": "~1.1.1",
+    "gulp-rimraf": "0.1.1",
     "gulp-rename": "~1.2.0",
     "gulp-rigger": "~0.5.8"
   }
