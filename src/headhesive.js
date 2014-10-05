@@ -71,9 +71,7 @@
       }
 
       // Determin offset value
-      this.scrollOffset = typeof this.options.offset === 'string'
-        ? _getElemY(document.querySelector(this.options.offset))
-        : this.scrollOffset = this.options.offset;
+      this.scrollOffset = typeof this.options.offset === 'string' ? _getElemY(document.querySelector(this.options.offset)) : this.scrollOffset = this.options.offset;
 
       // Throttled scroll
       this._throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);

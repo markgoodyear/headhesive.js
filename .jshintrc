@@ -22,6 +22,8 @@
     "_throttle": true,
     "_mergeObj": true,
     "_getElemY": true,
-    "_getScrollY": true
+    "_getScrollY": true,
+    "_getScrollY": true,
+    "_getDataOptions": true
   }
 }
