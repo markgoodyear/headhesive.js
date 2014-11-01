@@ -124,4 +124,9 @@
     }
   };
   window.Headhesive = Headhesive;
+  if (typeof window.define === "function" && window.define.amd) {
+    window.define("Headhesive", [], function() {
+      return window.Headhesive;
+    });
+  }
 })(window, document);
