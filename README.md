@@ -73,6 +73,25 @@ To destroy an instance of Headhesive.js, you can call the destroy method:
 header.destroy();
 ```
 
+## AMD Support
+Headhesive support AMD (Asynchronous Module Definition) to be used with libraries 
+such as [RequireJS](http://requirejs.org/). Example:
+
+```javascript
+require.config({
+    paths:{
+        'Headhesive':   [ 'path/to/headhesive' ] // ".js" is removed from the filename
+    }
+});
+
+require(['Headhesive'], function(Headhesive) {
+    // Now you can Headhesive as you already now, example :
+
+    var header = new Headhesive('.header', { offset: 200 });
+});
+```
+
+
 ## Browser support
 IE9+ and modern browsers.
 
