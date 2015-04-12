@@ -92,19 +92,19 @@
       }
       this._throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);
       window.addEventListener("scroll", this._throttleUpdate, false);
-      this.options.onInit.call(this);
+      this.options.onInit.call(this, this);
     },
     destroy: function() {
       document.body.removeChild(this.clonedElem);
       window.removeEventListener("scroll", this._throttleUpdate);
-      this.options.onDestroy.call(this);
+      this.options.onDestroy.call(this, this);
     },
     stick: function() {
       if (!this.visible) {
         this.clonedElem.className = this.clonedElem.className.replace(new RegExp("(^|\\s)*" + this.options.classes.unstick + "(\\s|$)*", "g"), "");
         this.clonedElem.className += " " + this.options.classes.stick;
         this.visible = true;
-        this.options.onStick.call(this);
+        this.options.onStick.call(this, this);
       }
     },
     unstick: function() {
@@ -112,7 +112,7 @@
         this.clonedElem.className = this.clonedElem.className.replace(new RegExp("(^|\\s)*" + this.options.classes.stick + "(\\s|$)*", "g"), "");
         this.clonedElem.className += " " + this.options.classes.unstick;
         this.visible = false;
-        this.options.onUnstick.call(this);
+        this.options.onUnstick.call(this, this);
       }
     },
     update: function() {
