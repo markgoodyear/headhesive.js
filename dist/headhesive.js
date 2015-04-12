@@ -78,7 +78,7 @@
       onDestroy: function() {}
     };
     this.elem = typeof elem === "string" ? document.querySelector(elem) : elem;
-    options = _getDataOptions(this.elem.dataset.headhesive);
+    options = _mergeObj(options, _getDataOptions(this.elem.dataset.headhesive));
     this.options = _mergeObj(this.options, options);
     this.init();
   };
@@ -98,14 +98,14 @@
       this.scrollOffset = typeof this.options.offset === "string" ? _getElemY(document.querySelector(this.options.offset)) : this.scrollOffset = this.options.offset;
       this._throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);
       window.addEventListener("scroll", this._throttleUpdate, false);
-      this.options.onInit.call(this);
+      this.options.onInit.call(this, this);
     },
     destroy: function() {
       if (this.clone) {
         document.body.removeChild(this.targetElem);
       }
       window.removeEventListener("scroll", this._throttleUpdate);
-      this.options.onDestroy.call(this);
+      this.options.onDestroy.call(this, this);
     },
     stick: function() {
       if (!this.pastOffset) {
@@ -116,7 +116,7 @@
         this.targetElem.className = this.targetElem.className.replace(new RegExp("(^|\\s)*" + "animating-out" + "(\\s|$)*", "g"), " ");
         this.targetElem.className += " " + this.options.classes.stick;
         this.pastOffset = true;
-        this.options.onStick.call(this);
+        this.options.onStick.call(this, this);
       }
     },
     unstick: function() {
@@ -127,7 +127,7 @@
         this.targetElem.className = this.targetElem.className.replace(new RegExp("(^|\\s)*" + this.options.classes.stick + "(\\s|$)*", "g"), " ");
         this.targetElem.className += " " + this.options.classes.unstick;
         this.pastOffset = false;
-        this.options.onUnstick.call(this);
+        this.options.onUnstick.call(this, this);
       }
     },
     update: function() {
