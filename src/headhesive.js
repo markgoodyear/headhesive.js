@@ -37,7 +37,7 @@
     this.elem = (typeof elem === 'string') ? document.querySelector(elem) : elem;
 
     // Override options if data-attributes are specified
-    options = _getDataOptions(this.elem.dataset.headhesive);
+    options = _mergeObj(options, _getDataOptions(this.elem.dataset.headhesive));
 
     // Merge user options with default options
     this.options = _mergeObj(this.options, options);

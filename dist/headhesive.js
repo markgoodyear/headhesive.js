@@ -78,7 +78,7 @@
       onDestroy: function() {}
     };
     this.elem = typeof elem === "string" ? document.querySelector(elem) : elem;
-    options = _getDataOptions(this.elem.dataset.headhesive);
+    options = _mergeObj(options, _getDataOptions(this.elem.dataset.headhesive));
     this.options = _mergeObj(this.options, options);
     this.init();
   };
