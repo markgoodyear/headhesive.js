@@ -77,7 +77,7 @@
       this._throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);
 
       window.addEventListener('scroll', this._throttleUpdate, false);
-      this.options.onInit.call(this);
+      this.options.onInit.call(this, this);
     },
 
     /**
@@ -89,7 +89,7 @@
       }
 
       window.removeEventListener('scroll', this._throttleUpdate);
-      this.options.onDestroy.call(this);
+      this.options.onDestroy.call(this, this);
     },
 
     /**
@@ -105,7 +105,7 @@
         this.targetElem.className = this.targetElem.className.replace(new RegExp('(^|\\s)*' + 'animating-out' + '(\\s|$)*', 'g'), ' ');
         this.targetElem.className += ' ' + this.options.classes.stick;
         this.pastOffset = true;
-        this.options.onStick.call(this);
+        this.options.onStick.call(this, this);
       }
     },
 
@@ -121,7 +121,7 @@
         this.targetElem.className = this.targetElem.className.replace(new RegExp('(^|\\s)*' + this.options.classes.stick + '(\\s|$)*', 'g'), ' ');
         this.targetElem.className += ' ' + this.options.classes.unstick;
         this.pastOffset = false;
-        this.options.onUnstick.call(this);
+        this.options.onUnstick.call(this, this);
       }
     },
 
