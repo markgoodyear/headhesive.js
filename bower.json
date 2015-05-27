@@ -1,9 +1,9 @@
 {
   "name": "Headhesive.js",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "homepage": "http://markgoodyear.com/labs/headhesive/",
   "authors": [
-    "Mark Goodyear <hello@markgoodyear.com>"
+    "Mark Goodyear <hello@markgoodyear.com> (http://markgoodyear.com)"
   ],
   "description": "An on-demand sticky header",
   "main": "dist/headhesive.js",

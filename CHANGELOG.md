@@ -1,5 +1,8 @@
 # Headhesive changelog
 
+## v1.2.1
+- [Fix] Bump version to publish to npm
+
 ## v1.2.0
 - [Feature] Add UMD support
 - [Feature] Allow to select either the top or bottom of the offset element
