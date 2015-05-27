@@ -1,5 +1,13 @@
 # Headhesive changelog
 
+## v1.2.0
+- [Feature] Add UMD support
+- [Feature] Allow to select either the top or bottom of the offset element
+- [Feature] Update the offset position on browser resize
+- Publish to npm
+- Add license file
+- [Fix] Make the clone version lower z-index than original. Prevents visual overlap of both when scrolling quickly
+
 ## v1.1.1
 - [Fix] Fix class naming
 

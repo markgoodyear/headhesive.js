@@ -1,0 +1,10 @@
+testing
+bower*
+demo
+src
+.npmignore
+.gitignore
+.DS_Store
+*.log
+*.node
+.idea

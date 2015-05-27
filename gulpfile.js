@@ -5,51 +5,52 @@ var gulp    = require('gulp');
 var jshint  = require('gulp-jshint');
 var concat  = require('gulp-concat');
 var uglify  = require('gulp-uglify');
-var clean   = require('gulp-rimraf');
 var header  = require('gulp-header');
 var rename  = require('gulp-rename');
-var rigger  = require('gulp-rigger');
+var include = require('gulp-include');
+var del     = require('del');
 var pkg     = require('./package.json');
-
-
 
 /**
  * Config
  */
 var config = {
-    name:   'Headhesive',
-    src:    'src/headhesive.js',
-    dest:   'dist/',
-    banner: ['/*!',
-        ' * <%= pkg.name %> v<%= pkg.version %> - <%= pkg.description %>',
-        ' * Url: <%= pkg.homepage %>',
-        ' * Copyright (c) <%= pkg.author.name %> — <%= pkg.author.twitter %> — <%= pkg.author.url %>',
-        ' * License: <%= pkg.license %>',
-        ' */',
-        ''].join('\n')
-}
-
+  name:   'Headhesive',
+  src:    'src/headhesive.js',
+  dest:   'dist/',
+  banner: ['/*!',
+           ' * Headhesive.js v<%= pkg.version %> - <%= pkg.description %>',
+           ' * Author: Copyright (c) <%= pkg.author.name %> <<%= pkg.author.twitter %>> <<%= pkg.author.url %>>',
+           ' * Url: <%= pkg.homepage %>',
+           ' * License: <%= pkg.license %>',
+           ' */',
+           ''].join('\n')
+};
 
 /**
  * Tasks
  */
-gulp.task('compile', function() {
-    return gulp.src(config.src)
-        .pipe(jshint('.jshintrc'))
-        .pipe(jshint.reporter('jshint-stylish'))
-        .pipe(rigger())
-        .pipe(header(config.banner, { pkg: pkg }))
-        .pipe(uglify({preserveComments: 'some', compress: false, mangle: false, output:{ beautify: true, indent_level: 2 }}))
-        .pipe(gulp.dest(config.dest))
-        .pipe(uglify({preserveComments: 'some'}))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(config.dest));
+gulp.task('clean', function (cb) {
+  del(['dist'], cb)
 });
 
-// Default
-gulp.task('default', ['compile']);
+gulp.task('compile', function () {
+  return gulp.src(config.src)
+    .pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(include())
+    .pipe(header(config.banner, { pkg: pkg }))
+    .pipe(uglify({preserveComments: 'some', compress: false, mangle: false, output: { beautify: true, indent_level: 2 }}))
+    .pipe(gulp.dest(config.dest))
+    .pipe(uglify({preserveComments: 'some'}))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(config.dest));
+});
 
-// Watch
-gulp.task('watch', function() {
-    gulp.watch(config.src, ['compile']);
+gulp.task('default', ['clean'], function () {
+  gulp.start('compile');
+});
+
+gulp.task('watch', function () {
+  gulp.watch(config.src, ['compile']);
 });

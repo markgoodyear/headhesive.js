@@ -1,10 +1,18 @@
 /*!
- * headhesive v1.1.1 - An on-demand sticky header
+ * Headhesive.js v1.2.0 - An on-demand sticky header
+ * Author: Copyright (c) Mark Goodyear <@markgdyr> <http://markgoodyear.com>
  * Url: http://markgoodyear.com/labs/headhesive
- * Copyright (c) Mark Goodyear — @markgdyr — http://markgoodyear.com
  * License: MIT
  */
-(function(window, document, undefined) {
+(function(root, factory) {
+  if (typeof define === "function" && define.amd) {
+    define([], factory(root));
+  } else if (typeof exports === "object") {
+    module.exports = factory(root);
+  } else {
+    root.Headhesive = factory(root);
+  }
+})(this, function(root) {
   "use strict";
   var _mergeObj = function(to, from) {
     for (var p in from) {
@@ -47,14 +55,18 @@
   var _getScrollY = function() {
     return window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
   };
-  function _getElemY(elem) {
-    var top = 0;
+  var _getElemY = function(elem, side) {
+    var pos = 0;
+    var elemHeight = elem.offsetHeight;
     while (elem) {
-      top += elem.offsetTop;
+      pos += elem.offsetTop;
       elem = elem.offsetParent;
     }
-    return top;
-  }
+    if (side === "bottom") {
+      pos = pos + elemHeight;
+    }
+    return pos;
+  };
   var Headhesive = function(elem, options) {
     if (!("querySelector" in document && "addEventListener" in window)) {
       return;
@@ -62,6 +74,7 @@
     this.visible = false;
     this.options = {
       offset: 300,
+      offsetSide: "top",
       classes: {
         clone: "headhesive",
         stick: "headhesive--stick",
@@ -86,17 +99,23 @@
       if (typeof this.options.offset === "number") {
         this.scrollOffset = this.options.offset;
       } else if (typeof this.options.offset === "string") {
-        this.scrollOffset = _getElemY(document.querySelector(this.options.offset));
+        this._setScrollOffset();
       } else {
         throw new Error("Invalid offset: " + this.options.offset);
       }
       this._throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);
+      this._throttleScrollOffset = _throttle(this._setScrollOffset.bind(this), this.options.throttle);
       window.addEventListener("scroll", this._throttleUpdate, false);
+      window.addEventListener("resize", this._throttleScrollOffset, false);
       this.options.onInit.call(this);
+    },
+    _setScrollOffset: function() {
+      this.scrollOffset = _getElemY(document.querySelector(this.options.offset), this.options.offsetSide);
     },
     destroy: function() {
       document.body.removeChild(this.clonedElem);
       window.removeEventListener("scroll", this._throttleUpdate);
+      window.removeEventListener("scroll", this._throttleScrollOffset);
       this.options.onDestroy.call(this);
     },
     stick: function() {
@@ -123,5 +142,5 @@
       }
     }
   };
-  window.Headhesive = Headhesive;
-})(window, document);
+  return Headhesive;
+});

@@ -1,161 +1,179 @@
 /* Main */
 * {
-    -webkit-box-sizing: border-box;
-       -mox-box-sizing: border-box;
-            box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+     -mox-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html  {
-    line-height: 1.6;
-    font-family:  'Open Sans', 'Helvetica', sans-serif;
+  line-height: 1.6;
+  font-family: 'Open Sans', 'Helvetica', sans-serif;
 }
 
-/* Links */
-a {
-    text-decoration: none;
-    color: #c95a5d;
-    -webkit-transition: all 300ms ease-in-out;
-       -moz-transition: all 300ms ease-in-out;
-            transition: all 300ms ease-in-out;
+img {
+  max-width: 100%;
 }
-    a:hover {
-        color: #7C2B2D;
-    }
+
+a {
+  text-decoration: none;
+  color: #c95a5d;
+  -webkit-transition: all 300ms ease-in-out;
+     -moz-transition: all 300ms ease-in-out;
+          transition: all 300ms ease-in-out;
+}
+  a:hover {
+    color: #7C2B2D;
+  }
 
 .lead {
-    font-size: 18px;
-    margin-bottom: 60px;
+  margin-bottom: 60px;
+  font-size: 18px;
 }
 
-/* Button */
 .btn {
-    border: 2px solid #fff;
-    border-radius: 6px;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 10px;
-    text-shadow: none !important;
+  padding: 10px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: none !important;
 }
-    .btn:hover {
-        background: #fff;
-        color: #7C2B2D;
-    }
+  .btn:hover {
+    background: #fff;
+    color: #7C2B2D;
+  }
 
-
-/**
- * Banner
+/*
+ * Main banner elem
+ * 1. Make sure the original is higher z-index so when scrolling up fast, the clone goes underneith.
+    Prevents visual overlap.
  */
-
-/* Main elem */
 .banner {
-    background: #c95a5d;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    height: 70px;
-    width: 100%;
-    color: #fff;
+  width: 100%;
+  height: 70px;
+  position: relative; /* 1 */
+  z-index: 2; /* 1 */
+  background: #c95a5d;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
 }
-    .banner a {
-        color: #fff;
-    }
-    .banner a:hover {
-        color: #7C2B2D;
-    }
 
-/* Logo */
+  .banner a {
+    color: #fff;
+  }
+
+  .banner a:hover {
+    color: #7C2B2D;
+  }
+
 .logo {
-    float: left;
-    margin: 0;
-    font-size: 20px;
-    line-height: 70px;
+  float: left;
+  margin: 0;
+  font-size: 20px;
+  line-height: 70px;
 }
 
-/* Nav */
 .nav {
-    height: 40px;
-    padding: 0;
-    margin: 15px 0 0;
-    float: right;
+  float: right;
+  height: 40px;
+  padding: 0;
+  margin: 15px 0 0;
 }
-    /* Nav item */
-    .nav__item {
-        height: 40px;
-        line-height: 40px;
-        padding: 0;
-        margin-left: 10px;
-        display: inline-block;
-    }
-    /* Nav item button */
-    .nav__item--btn {
-        display: inline-block;
-        padding: 0 10pxi;
-        font-size: 14px;
-        line-height: 38px;
-        padding: 0 20px;
-        width: auto;
-    }
 
-/* Hero */
+  .nav__item {
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    margin-left: 10px;
+    display: inline-block;
+  }
+
+  .nav__item--btn {
+    display: inline-block;
+    width: auto;
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 38px;
+  }
+
 .hero {
-    background: #c95a5d;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 60px;
-    overflow: hidden;
-    padding: 60px;
-    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  margin-bottom: 60px;
+  padding: 60px;
+  background: #c95a5d;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+
+@media screen and (max-width: 540px) {
+  .hero {
+    padding: 40px 0;
+  }
 }
 
 .hero__title {
-    font-size: 72px;
-    margin: 0 0 10px;
+  margin: 0 0 10px;
+  font-size: 72px;
 }
 
-.hero__title span {
-    /*opacity: .6;*/
+@media screen and (max-width: 800px) {
+  .hero__title {
+    font-size: 48px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .hero__title {
+    font-size: 38px;
+  }
 }
 
 .hero__snippet {
-    font-size: 32px;
-    font-style: italic;
-    margin: 0 0 40px;
+  margin: 0 0 40px;
+  font-size: 32px;
+  font-style: italic;
+}
+
+@media screen and (max-width: 540px) {
+  .hero__snippet {
+    font-size: 24px;
+  }
 }
 
 .hero__btn {
-    border-color: #fff;
-    color: #fff;
-    padding: 10px 0;
-    width: 160px;
-    display: inline-block;
+  width: 160px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-color: #fff;
+  color: #fff;
+  display: inline-block;
 }
 
-/* Button List */
 .btn-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .btn-list__item {
-    display: inline-block;
-    margin: auto 5px;
+  display: inline-block;
+  margin: auto 5px;
 }
 
-
-
-/* Container */
 .container {
-    width: 90%;
-    max-width: 800px;
-    margin: auto;
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
 }
 
 footer {
-    margin-top: 60px;
-    color: #888;
-    border-top: 1px solid #eee;
-    font-size: 14px;
+  margin-top: 60px;
+  color: #888;
+  border-top: 1px solid #eee;
+  font-size: 14px;
 }
 
 footer .top {
-    float: right;
+  float: right;
 }
