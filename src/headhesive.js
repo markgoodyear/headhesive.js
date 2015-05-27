@@ -1,12 +1,14 @@
 (function (root, factory) {
-  if ( typeof define === 'function' && define.amd ) {
-    define([], factory(root));
+  if (typeof define === 'function' && define.amd) {
+    define([], function () {
+      return factory();
+    });
   } else if (typeof exports === 'object') {
-    module.exports = factory(root);
+    module.exports = factory();
   } else {
-    root.Headhesive = factory(root);
+    root.Headhesive = factory();
   }
-})(this, function (root) {
+})(this, function () {
   'use strict';
 
   //= include helpers.js

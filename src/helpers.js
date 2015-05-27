@@ -66,7 +66,7 @@ var _getScrollY = function () {
  */
 var _getElemY = function (elem, side) {
   var pos = 0;
-  var elemHeight = elem.offsetHeight
+  var elemHeight = elem.offsetHeight;
 
   while (elem) {
     pos += elem.offsetTop;
@@ -78,4 +78,4 @@ var _getElemY = function (elem, side) {
   }
 
   return pos;
-}
+};

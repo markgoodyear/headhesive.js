@@ -1,18 +1,20 @@
 /*!
- * Headhesive.js v1.2.0 - An on-demand sticky header
+ * Headhesive.js v1.2.1 - An on-demand sticky header
  * Author: Copyright (c) Mark Goodyear <@markgdyr> <http://markgoodyear.com>
  * Url: http://markgoodyear.com/labs/headhesive
  * License: MIT
  */
 (function(root, factory) {
   if (typeof define === "function" && define.amd) {
-    define([], factory(root));
+    define([], function() {
+      return factory();
+    });
   } else if (typeof exports === "object") {
-    module.exports = factory(root);
+    module.exports = factory();
   } else {
-    root.Headhesive = factory(root);
+    root.Headhesive = factory();
   }
-})(this, function(root) {
+})(this, function() {
   "use strict";
   var _mergeObj = function(to, from) {
     for (var p in from) {

@@ -1,5 +1,8 @@
 # Headhesive changelog
 
+## v1.2.2
+- [Fix] Fix UMD support
+
 ## v1.2.1
 - [Fix] Bump version to publish to npm
 
