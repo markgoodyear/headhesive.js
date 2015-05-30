@@ -18,7 +18,7 @@ bower install headhesive (or bower install headhesive.js)
 ```
 
 ## How to use?
-Headhesive.js is a standalone JavaScript plugin with no dependancies. Include the [`headhesive.min.js`](dist/headhesive.min.js) *(from the [`dist/`](dist/) folder)* in the footer of your page and initialise it:
+Headhesive.js is a standalone JavaScript plugin with no dependencies. Include the [`headhesive.min.js`](dist/headhesive.min.js) *(from the [`dist/`](dist/) folder)* in the footer of your page and initialise it:
 
 ```javascript
 // Create a new instance of Headhesive
