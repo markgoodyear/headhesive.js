@@ -22,7 +22,7 @@ Headhesive.js is a standalone JavaScript plugin with no dependancies. Include th
 
 ```javascript
 // Create a new instance of Headhesive
-var headhesive = new Headhesive('.header');
+var header = new Headhesive('.header');
 ```
 
 ### Styling Headhesive.js
