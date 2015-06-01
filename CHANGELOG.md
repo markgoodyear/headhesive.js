@@ -1,5 +1,8 @@
 # Headhesive changelog
 
+## v1.2.3
+- [Fix] Readme correction
+
 ## v1.2.2
 - [Fix] Fix UMD support
 

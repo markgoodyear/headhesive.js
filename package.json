@@ -1,7 +1,7 @@
 {
   "name": "headhesive",
   "description": "An on-demand sticky header",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": {
     "name": "Mark Goodyear",
     "url": "http://markgoodyear.com",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "del": "^1.2.0",
     "gulp": "~3.8.11",
+    "gulp-bump": "^0.3.1",
     "gulp-concat": "~2.5.2",
     "gulp-header": "~1.2.2",
     "gulp-include": "^1.1.1",

@@ -8,6 +8,7 @@ var uglify  = require('gulp-uglify');
 var header  = require('gulp-header');
 var rename  = require('gulp-rename');
 var include = require('gulp-include');
+var bump    = require('gulp-bump');
 var del     = require('del');
 var pkg     = require('./package.json');
 
@@ -26,6 +27,21 @@ var config = {
            ' */',
            ''].join('\n')
 };
+
+/**
+ * Bump version
+ */
+var bumpVer = function (bumpType) {
+  return gulp.src(['./package.json', './bower.json'])
+    .pipe(bump({
+      type: bumpType
+    }))
+    .pipe(gulp.dest('./'));
+}
+
+gulp.task('bump:patch', function () { return bumpVer('patch'); })
+gulp.task('bump:minor', function () { return bumpVer('minor'); })
+gulp.task('bump:major', function () { return bumpVer('major'); })
 
 /**
  * Tasks
