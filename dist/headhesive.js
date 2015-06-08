@@ -1,5 +1,5 @@
 /*!
- * Headhesive.js v1.2.1 - An on-demand sticky header
+ * Headhesive.js v1.2.3 - An on-demand sticky header
  * Author: Copyright (c) Mark Goodyear <@markgdyr> <http://markgoodyear.com>
  * Url: http://markgoodyear.com/labs/headhesive
  * License: MIT
@@ -112,12 +112,14 @@
       this.options.onInit.call(this);
     },
     _setScrollOffset: function() {
-      this.scrollOffset = _getElemY(document.querySelector(this.options.offset), this.options.offsetSide);
+      if (typeof this.options.offset === "string") {
+        this.scrollOffset = _getElemY(document.querySelector(this.options.offset), this.options.offsetSide);
+      }
     },
     destroy: function() {
       document.body.removeChild(this.clonedElem);
       window.removeEventListener("scroll", this._throttleUpdate);
-      window.removeEventListener("scroll", this._throttleScrollOffset);
+      window.removeEventListener("resize", this._throttleScrollOffset);
       this.options.onDestroy.call(this);
     },
     stick: function() {

@@ -85,10 +85,11 @@
       this._throttleUpdate = _throttle(this.update.bind(this), this.options.throttle);
       this._throttleScrollOffset = _throttle(this._setScrollOffset.bind(this), this.options.throttle);
 
-      // Events
+      // Events.
       window.addEventListener('scroll', this._throttleUpdate, false);
       window.addEventListener('resize', this._throttleScrollOffset, false);
 
+      // Callback.
       this.options.onInit.call(this);
     },
 
@@ -96,7 +97,9 @@
      * Sets the scrollOffset value.
      */
     _setScrollOffset: function () {
-      this.scrollOffset = _getElemY(document.querySelector(this.options.offset), this.options.offsetSide);
+      if (typeof this.options.offset === 'string') {
+        this.scrollOffset = _getElemY(document.querySelector(this.options.offset), this.options.offsetSide);
+      }
     },
 
     /**
@@ -105,7 +108,9 @@
     destroy: function () {
       document.body.removeChild(this.clonedElem);
       window.removeEventListener('scroll', this._throttleUpdate);
-      window.removeEventListener('scroll', this._throttleScrollOffset);
+      window.removeEventListener('resize', this._throttleScrollOffset);
+
+      // Callback.
       this.options.onDestroy.call(this);
     },
 
@@ -117,6 +122,8 @@
         this.clonedElem.className = this.clonedElem.className.replace(new RegExp('(^|\\s)*' + this.options.classes.unstick + '(\\s|$)*', 'g'), '');
         this.clonedElem.className += ' ' + this.options.classes.stick;
         this.visible = true;
+
+        // Callback.
         this.options.onStick.call(this);
       }
     },
@@ -129,6 +136,8 @@
         this.clonedElem.className = this.clonedElem.className.replace(new RegExp('(^|\\s)*' + this.options.classes.stick + '(\\s|$)*', 'g'), '');
         this.clonedElem.className += ' ' + this.options.classes.unstick;
         this.visible = false;
+
+        // Callback.
         this.options.onUnstick.call(this);
       }
     },
