@@ -30,6 +30,7 @@
     this.options = {
       offset: 300,
       offsetSide: 'top',
+      containerSelector: 'body',
       classes: {
         clone:   'headhesive',
         stick:   'headhesive--stick',
@@ -68,7 +69,7 @@
       // Clone element
       this.clonedElem = this.elem.cloneNode(true);
       this.clonedElem.className += ' ' + this.options.classes.clone;
-      document.body.insertBefore(this.clonedElem, document.body.firstChild);
+      document.querySelector(this.options.containerSelector).insertBefore(this.clonedElem, document.querySelector(this.options.containerSelector).firstChild);
 
       // Determin offset value
       if (typeof this.options.offset === 'number') {
