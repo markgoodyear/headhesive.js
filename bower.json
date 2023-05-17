@@ -1,11 +1,12 @@
 {
   "name": "Headhesive.js",
-  "version": "1.2.4",
+  "version": "2.0.0",
   "homepage": "http://markgoodyear.com/labs/headhesive/",
   "authors": [
+    "Răzvan Gheorghe <razvan@ideacat.ro> (https://ideacat.ro)",
     "Mark Goodyear <hello@markgoodyear.com> (http://markgoodyear.com)"
   ],
-  "description": "An on-demand sticky header",
+  "description": "An on-demand sticky header. 2023 refreshed using Vite",
   "main": "dist/headhesive.js",
   "keywords": [
     "header",
