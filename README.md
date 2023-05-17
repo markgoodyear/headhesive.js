@@ -1,24 +1,28 @@
 # Headhesive.js
+
 > An on-demand sticky header.
 
 ## What is it?
+
 Headhesive.js creates an on-demand sticky header. Specify when you want your header to become fixed and the rest is magic. [View demo](http://markgoodyear.com/labs/headhesive/).
 
 ## Install
-Install with npm:
 
-```
-npm install headhesive
+### Install with npm
+
+```bash
+npm install
 ```
 
-Install with Bower:
+### Install with yarn
 
-```
-bower install headhesive (or bower install headhesive.js)
+```bash
+yarn install headhesive
 ```
 
 ## How to use?
-Headhesive.js is a standalone JavaScript plugin with no dependencies. Include the [`headhesive.min.js`](dist/headhesive.min.js) *(from the [`dist/`](dist/) folder)* in the footer of your page and initialise it:
+
+Headhesive.js is a standalone JavaScript plugin with no dependencies. Include the [`headhesive.mjs`](dist/headhesive.mjs) *(from the [`dist/`](dist/) folder)* in the footer of your page and initialise it:
 
 ```javascript
 // Create a new instance of Headhesive
@@ -26,9 +30,11 @@ var header = new Headhesive('.header');
 ```
 
 ### Styling Headhesive.js
+
 Headhesive.js doesn't inject any CSS styles so you can use your own to completely control how your sticky element behaves. An [example is provided in the demo](demo/css/headhesive.css).
 
 ## Options
+
 Customise how Headhesive.js works by passing in custom options.
 
 ```javascript
@@ -76,6 +82,7 @@ var header = new Headhesive('.header', options);
 ```
 
 ## Destroy method
+
 To destroy an instance of Headhesive.js, you can call the destroy method:
 
 ```javascript
@@ -83,10 +90,13 @@ header.destroy();
 ```
 
 ## Browser support
+
 IE9+ and modern browsers.
 
 ## License
+
 Headesive.js is licensed under the [MIT License](LICENSE).
 
 ## Demo
+
 There is a demo available in the [demo folder](demo/) and online at [http://markgoodyear.com/labs/headhesive/](http://markgoodyear.com/labs/headhesive/).

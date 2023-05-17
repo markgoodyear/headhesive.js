@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "prepublish": "yarn build"
+    "prepublish": "vite build"
   },
   "keywords": [],
   "author": "",
