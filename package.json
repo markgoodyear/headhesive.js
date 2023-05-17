@@ -1,49 +1,23 @@
 {
-  "name": "headhesive",
-  "description": "An on-demand sticky header",
-  "version": "1.2.4",
-  "author": {
-    "name": "Mark Goodyear",
-    "url": "http://markgoodyear.com",
-    "twitter": "@markgdyr"
-  },
-  "keywords": [
-    "header",
-    "head",
-    "sticky",
-    "banner",
-    "navigation",
-    "nav",
-    "scroll"
-  ],
+  "name": "headhesive.js",
+  "version": "2.0.0",
+  "description": "An on-demand sticky header, 2023 refreshed using Vite",
   "main": "dist/headhesive.js",
-  "homepage": "http://markgoodyear.com/labs/headhesive",
-  "repository": "git@github.com:markgoodyear/headhesive.js.git",
-  "bugs": {
-    "url": "https://github.com/markgoodyear/headhesive.js/issues"
+  "types": "dist/headhesive.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepublish": "vite build"
   },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
+  "keywords": [],
+  "author": "",
+  "authors": [
+    "Răzvan Gheorghe <razvan@ideacat.ro> (https://ideacat.ro)",
+    "Mark Goodyear <hello@markgoodyear.com> (http://markgoodyear.com)"
   ],
   "license": "MIT",
-  "engines": {
-    "node": ">= 0.9"
-  },
   "devDependencies": {
-    "del": "^1.2.0",
-    "gulp": "~3.8.11",
-    "gulp-bump": "^0.3.1",
-    "gulp-concat": "~2.5.2",
-    "gulp-header": "~1.2.2",
-    "gulp-include": "^1.1.1",
-    "gulp-jshint": "~1.11.0",
-    "gulp-livereload": "~3.8.0",
-    "gulp-plumber": "~1.0.1",
-    "gulp-rename": "~1.2.2",
-    "gulp-uglify": "~1.2.0",
-    "gulp-util": "~3.0.4",
-    "jshint-stylish": "~2.0.0"
+    "vite": "^4.3.7"
   }
 }

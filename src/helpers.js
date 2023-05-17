@@ -4,10 +4,10 @@
  * @param  {Object} from
  * @return {Object}
  */
-var _mergeObj = function (to, from) {
-  for (var p in from) {
-    if (from.hasOwnProperty(p)) {
-      to[p] = (typeof from[p] === 'object') ? _mergeObj(to[p], from[p]) : from[p];
+export const mergeObj = function (to, from) {
+  for (let p in from) {
+    if (Object.prototype.hasOwnProperty.call(from, p)) {
+      to[p] = typeof from[p] === "object" ? mergeObj(to[p], from[p]) : from[p];
     }
   }
 
@@ -17,21 +17,25 @@ var _mergeObj = function (to, from) {
 /**
  * Throttle, borrowed from Underscore.js
  */
-var _throttle = function (func, wait) {
-  var _now =  Date.now || function () { return new Date().getTime(); };
-  var context, args, result;
-  var timeout = null;
-  var previous = 0;
-  var later = function () {
-    previous = _now();
+export const throttle = function (func, wait) {
+  const now =
+    Date.now ||
+    function () {
+      return new Date().getTime();
+    };
+  let context, args, result;
+  let timeout = null;
+  let previous = 0;
+  const later = function () {
+    previous = now();
     timeout = null;
     result = func.apply(context, args);
     context = args = null;
   };
 
   return function () {
-    var now = _now();
-    var remaining = wait - (now - previous);
+    const now = Date.now();
+    const remaining = wait - (now - previous);
     context = this;
     args = arguments;
 
@@ -50,12 +54,14 @@ var _throttle = function (func, wait) {
 };
 
 /**
- * Get current Y posistion
+ * Get current Y position
  * @return {Number}
  */
-var _getScrollY = function () {
-  return (window.pageYOffset !== undefined) ?
-      window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+export const getScrollY = function () {
+  return window.scrollY !== undefined
+    ? window.scrollY
+    : (document.documentElement || document.body.parentNode || document.body)
+        .scrollTop;
 };
 
 /**
@@ -64,16 +70,16 @@ var _getScrollY = function () {
  * @param  {String}          side - Elem side (top or bottom)
  * @return {Number}
  */
-var _getElemY = function (elem, side) {
-  var pos = 0;
-  var elemHeight = elem.offsetHeight;
+export const getElemY = function (elem, side) {
+  let pos = 0;
+  const elemHeight = elem.offsetHeight;
 
   while (elem) {
     pos += elem.offsetTop;
     elem = elem.offsetParent;
   }
 
-  if (side === 'bottom') {
+  if (side === "bottom") {
     pos = pos + elemHeight;
   }
 
